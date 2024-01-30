@@ -1,0 +1,3 @@
+spring.mail.host=172.25.174.11
+spring.mail.port=1025
+app.mail.from=ivan@irayspace.com
