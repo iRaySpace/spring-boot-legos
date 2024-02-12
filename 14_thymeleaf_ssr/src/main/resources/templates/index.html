@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thymeleaf Todo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main class="w-full px-7">
+        <h1 class="text-3xl font-bold pt-10 pb-6">TODO</h1>
+        <form action="#" method="POST" th:action="@{/create}" th:object="${todo}">
+            <input type="text" placeholder="Cook dinner..." th:field="${todo.name}" class="text-sm w-full focus:outline-none py-4 px-8 rounded shadow-2xl border">
+        </form>
+        <div class="mt-5 rounded text-sm w-full">
+            <div th:each="todo:${todos}" class="flex py-4 px-4 border">
+                <a th:href="@{/done/{name}(name=${todo.name})}" th:if="${!todo.done}" class="text-white bg-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm shadow-md border px-2 py-1 text-center me-2"></a>
+                <a th:href="@{/done/{name}(name=${todo.name})}" th:unless="${!todo.done}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-1 text-center me-2"></a>
+                <div th:text="${todo.name}" th:style="${todo.done} ? 'text-decoration: line-through;' : ''" class="flex-1"></div>
+                <a th:href="@{/remove/{name}(name=${todo.name})}">X</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
