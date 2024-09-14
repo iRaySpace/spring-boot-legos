@@ -1,0 +1,4 @@
+services:
+  zipkin:
+    image: 'openzipkin/zipkin:latest'
+    network_mode: container:15_observability
