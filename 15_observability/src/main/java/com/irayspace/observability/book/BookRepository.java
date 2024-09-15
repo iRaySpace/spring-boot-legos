@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.irayspace.observability.book.Book;
+import com.irayspace.observability.annotation.ScopedSpan;
 
 
 @Component
@@ -16,6 +16,7 @@ public class BookRepository {
         put("0486415872", new Book("Crime and Punishment", "Philosophical Fiction", "Fyodor Dostoyevsky", ""));
     }};
 
+    @ScopedSpan("BookRepository.findById")
     public Optional<Book> findById(String id) {
         try {
             Thread.sleep(2100);

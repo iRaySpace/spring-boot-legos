@@ -1,8 +1,6 @@
 package com.irayspace.observability.book;
 
-import java.util.Map;
 import java.util.Optional;
-import java.util.HashMap;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
